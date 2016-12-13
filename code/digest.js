@@ -37,32 +37,27 @@ Scope.prototype.$digest = function() {
 
 var scope = new Scope();
 scope.firstName = 'Joe';
-scope.counter = 0;
-
-scope.$watch(
-  function(scope) {
-    return scope.counter;
-  },
-  function(newValue, oldValue, scope) {
-    scope.counterIsTwo = (newValue === 2);
-  }
-);
 
 scope.$watch(
   function(scope) {
     return scope.firstName;
   },
   function(newValue, oldValue, scope) {
-    scope.counter++;
+    console.log(newValue, oldValue);
   }
 );
 
 // After the first digest the counter is 1
-scope.$digest();
-console.log(scope.counter === 1);
+
+setTimeout(function() {
+  scope.firstName = 'Jane';
+  scope.$digest();
+}, 200);
+
+// scope.$digest();
 
 // On the next change the counter becomes two, and the other watch listener is also run because of the dirty check
-scope.firstName = 'Jane';
+/*scope.firstName = 'Jane';
 scope.$digest();
 console.log(scope.counter === 2);
-console.log(scope.counterIsTwo);
+console.log(scope.counterIsTwo);*/
