@@ -1,5 +1,6 @@
 ## 异步I/O
 
+
 ### 单线程
 1.  web workers 创建工作线程来进行计算，解决javacript大计算阻塞UI渲染的问题。工作线程为了不阻塞主线程，通过消息传递的方式来传递运行结果，使得工作线程不能访问主线程的UI。
 2. node 采用和web worker相同的思路:child_process。
