@@ -55,3 +55,18 @@
     return false
   }
 ```
+
+1. 全局组件使用
+注册全局组件
+```
+Vue.component('my-component', {
+  // 选项
+});
+```
+如果要生效的话,需要使用 Vue.use(myComponent);
+2. 组件中name属性的意义:
+> 主要用于调试工具中查看组件名。
+3. 
+
+
+
